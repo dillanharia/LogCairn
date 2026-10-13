@@ -1,0 +1,5 @@
+Oct 13 14:00:01 lab-server sshd[1200]: Accepted password for dillan from 192.0.2.10 port 51000 ssh2
+Oct 13 14:01:03 lab-server sshd[1201]: Failed password for root from 192.0.2.50 port 52001 ssh2
+Oct 13 14:01:08 lab-server sshd[1202]: Failed password for root from 192.0.2.50 port 52002 ssh2
+Oct 13 14:01:14 lab-server sshd[1203]: Failed password for root from 192.0.2.50 port 52003 ssh2
+Oct 13 14:01:20 lab-server sshd[1204]: Accepted password for root from 192.0.2.50 port 52004 ssh2
