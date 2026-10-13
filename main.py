@@ -1,10 +1,13 @@
 # imports
 import re
+import argparse
 
 
-# initialisation
+# initialisation + counters
+
 failed_count = 0
 successful_count = 0
+unmatched_count = 0
 
 failures_by_ip = {}
 
@@ -19,11 +22,20 @@ auth_pattern = re.compile(
 
 # main 
 
-with open("samples/ssh_sample.txt", "r", encoding="utf-8") as log_file:
+## argparse
+
+parser = argparse.ArgumentParser(
+    description="Analyse SSH password authentication logs"
+)
+parser.add_argument("log_file", help="Path to the log file to analyse")
+args = parser.parse_args()
+
+with open(args.log_file, "r", encoding="utf-8") as log_file:
     for line in log_file:
         match = auth_pattern.search(line)
         
         if match is None:
+            unmatched_count += 1
             continue
         
         username = match.group("username")
@@ -46,6 +58,7 @@ with open("samples/ssh_sample.txt", "r", encoding="utf-8") as log_file:
 print(f"Failed password attempts: {failed_count}")
 print(f"Successful password attempts: {successful_count}")
 print(f"Failures by IP: {failures_by_ip}")
+print(f"Unmatched lines: {unmatched_count}")
 
 failure_threshold = 3
 
