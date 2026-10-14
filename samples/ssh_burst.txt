@@ -1,0 +1,4 @@
+Oct 14 12:00:00 lab-server sshd[1300]: Failed password for root from 192.0.2.70 port 54000 ssh2
+Oct 14 12:00:05 lab-server sshd[1301]: Failed password for root from 192.0.2.70 port 54001 ssh2
+Oct 14 12:00:10 lab-server sshd[1302]: Failed password for root from 192.0.2.70 port 54002 ssh2
+Oct 14 12:05:00 lab-server sshd[1303]: Failed password for root from 192.0.2.70 port 54003 ssh2
