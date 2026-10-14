@@ -67,6 +67,14 @@ with open(args.log_file, "r", encoding="utf-8") as log_file:
             
         elif outcome == "Accepted":
             successful_count += 1
+            
+            previous_failures = failures_by_ip.get(source_ip, 0)
+            
+            if previous_failures >= args.threshold:
+                print(
+                    f"ALERT: Successful login from {source_ip} "
+                    f"after {previous_failures} failed attempts."
+                )
 
 print(f"Failed password attempts: {failed_count}")
 print(f"Successful password attempts: {successful_count}")
