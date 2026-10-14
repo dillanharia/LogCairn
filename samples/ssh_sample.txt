@@ -5,3 +5,4 @@ Oct 13 14:01:14 lab-server sshd[1203]: Failed password for root from 192.0.2.50 
 Oct 13 14:01:20 lab-server sshd[1204]: Accepted password for root from 192.0.2.50 port 52004 ssh2
 Oct 13 14:02:00 lab-server sshd[1205]: Failed password for dillan from 192.0.2.10 port 51001 ssh2
 Oct 13 14:03:00 lab-server sshd[1206]: Failed password for invalid user admin from 192.0.2.60 port 53000 ssh2
+A test line that does not have an SSH authentication event
