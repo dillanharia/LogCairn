@@ -27,8 +27,21 @@ auth_pattern = re.compile(
 parser = argparse.ArgumentParser(
     description="Analyse SSH password authentication logs"
 )
+
 parser.add_argument("log_file", help="Path to the log file to analyse")
+
+parser.add_argument(
+    "--threshold",
+    type=int,
+    default=3,
+    help="Number of failed attempts required to trigger an alert"
+)
 args = parser.parse_args()
+if args.threshold < 1:
+    parser.error("--threshold must be a positive integer")
+
+
+## main loop
 
 with open(args.log_file, "r", encoding="utf-8") as log_file:
     for line in log_file:
@@ -60,7 +73,7 @@ print(f"Successful password attempts: {successful_count}")
 print(f"Failures by IP: {failures_by_ip}")
 print(f"Unmatched lines: {unmatched_count}")
 
-failure_threshold = 3
+failure_threshold = args.threshold
 
 for ip, count in failures_by_ip.items():
     if count >= failure_threshold:
